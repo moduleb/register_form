@@ -1,0 +1,207 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 37px;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.4s ease;
+    transition: 0.5s ease;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1440px;
+}
+
+.wrap {
+    display: flex;
+    gap: 111px;
+    align-items: flex-start;
+    padding: 38px 41px;
+}
+
+.btn {
+    display: block;
+    border-radius: 36px;
+    border: none;
+    background: #553E19;
+    height: 49px;
+    width: 232px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: #8a6428;
+}
+
+/* Image */
+
+.image-block {
+    display: flex;
+    align-items: flex-end;
+    width: 737px;
+    height: 825px;
+    border-radius: 29px;
+    background: linear-gradient(180deg, rgba(151, 118, 68, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
+        url("/img/cat_rectangle.png");
+    background-size: cover;
+}
+
+.image-block-text {
+    color: #fff;
+    padding: 0 0 55px 69px;
+}
+
+
+/* Form */
+
+.register-form-container {
+    padding-top: 75px;
+    width: 454px;
+}
+
+.form-greeting {
+    text-align: center;
+}
+
+
+/* Form selector */
+
+.form-selector {
+    display: flex;
+    margin: 24px auto 0 auto;
+    width: 329px;
+    padding: 10px 12px;
+    border-radius: 33px;
+    background-color: #F8EDDD;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-type-markup{
+    position: relative;
+    top: -50px;
+    right: -234px;
+    width: 146px;
+    height: 40px;
+    border-radius: 33px;
+    background-color: #9E896A;
+    transition: 1s ease;
+}
+
+
+.form-type-link {
+    z-index: 1;
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 33px;
+    width: 146px;
+    transition: color 0.4s ease-out;
+}
+
+#register-link {
+    color: #ffffff;
+}
+
+/* --- */
+
+.form-description {
+    margin-top: 52px;
+}
+
+
+/* Form fields */
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 32px;
+}
+
+input {
+    outline: none;
+    margin-top: 12px;
+    width: 100%;
+    height: 54px;
+    border: 1px solid #9E896A;
+    border-radius: 40px;
+    font-size: 15px;
+    text-indent: 31px;
+    font-weight: 300;
+}
+
+input:focus {
+    border: 1px solid #000;
+    transition: 500ms ease;
+}
+
+input::placeholder {
+    color: #ACACAC;
+}
+
+/* --- */
+
+.form-link-forgot-password {
+    margin: 22px 0 0 auto;
+    width: 122px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #000;
+    display: none;
+}
+
+.form-button {
+    margin-top: 55px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Password toggle */
+
+
+#password-field-block {
+    position: relative;
+    display: inline-block;
+}
+
+
+.toggle-password-icon {
+    content: "";
+    position: absolute;
+    top: 54px;
+    z-index: 1;
+    right: 28px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#show-password {
+    display: none;
+}
