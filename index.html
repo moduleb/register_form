@@ -18,7 +18,6 @@
     <main class="main" id="main">
         <div class="container">
             <div class="wrap">
-
                 <div class="image-block">
                     <div class="background-image"></div>
                     <div class="image-block-text">
@@ -26,33 +25,29 @@
                         <p>Lorem Ipsum is simply</p>
                     </div>
                 </div>
-
                 <div class="register-form-container">
                     <p class="form-greeting">Welcome to lorem..!</p>
-
                     <div class="form-selector">
                         <a class="form-type-link" href="#" id="login-link">Login</a>
                         <a class="form-type-link" href="#" id="register-link">Register</a>
-                       
                     </div>
                     <div class="form-type-markup" id="form-type-markup"></div>
-                    
                     <p class="form-description">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry.
                     </p>
-
-                    <div class="form-fields">
+                    <form class="form-fields">
                         <div class="form-field" id="email-field-block">
                             <p class="form-label">Email Address</p>
-                            <input type="email" placeholder="Enter your Email Address">
+                            <input type="email" value="email" placeholder="Enter your Email Address">
                         </div>
                         <div class="form-field" id="name-field-block">
                             <p class="form-label">User name</p>
-                            <input type="text" placeholder="Enter your User name">
+                            <input type="text" value="name" placeholder="Enter your User name">
                         </div>
                         <div class="form-field" id="password-field-block">
                             <p class="form-label">Password</p>
-                            <input type="password" id="password-field" placeholder="Enter your Password">
+                            <input type="password" value="password" id="password-field"
+                                placeholder="Enter your Password">
                             <div class="icon-container">
                                 <img src="/img/hide-password.svg" class="toggle-password-icon" id="hide-password"
                                     alt="show password" onclick="togglePassword()">
@@ -60,15 +55,13 @@
                             <img src="/img/show-password.svg" class="toggle-password-icon" id="show-password"
                                 alt="show password" onclick="togglePassword()">
                         </div>
-                    </div>
-
-                    <div class="form-link-forgot-password" id="forgot-password-link">
-                        <a href="#">Forgot Password?</a>
-                    </div>
-
-                    <div class="form-button">
-                        <button class="btn" id="btn">Register</button>
-                    </div>
+                        <div class="form-link-forgot-password" id="forgot-password-link">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <div class="form-button">
+                            <button class="btn" id="btn">Register</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

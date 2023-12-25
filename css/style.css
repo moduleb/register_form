@@ -30,15 +30,15 @@ a:hover {
 }
 
 .container {
-    margin: 0 auto;
     width: 1440px;
+    margin: 0 auto;
+    padding: 38px 41px;
 }
 
 .wrap {
     display: flex;
     gap: 111px;
     align-items: flex-start;
-    padding: 38px 41px;
 }
 
 .btn {
@@ -62,9 +62,9 @@ a:hover {
 
 .image-block {
     display: flex;
-    align-items: flex-end;
     width: 737px;
     height: 825px;
+    align-items: flex-end;
     border-radius: 29px;
     background: linear-gradient(180deg, rgba(151, 118, 68, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
         url("/img/cat_rectangle.png");
@@ -73,7 +73,8 @@ a:hover {
 
 .image-block-text {
     color: #fff;
-    padding: 0 0 55px 69px;
+    padding-bottom: 55px;
+    padding-left: 69px;
 }
 
 
@@ -102,7 +103,7 @@ a:hover {
     justify-content: space-between;
 }
 
-.form-type-markup{
+.form-type-markup {
     position: relative;
     top: -50px;
     right: -234px;
@@ -177,19 +178,16 @@ input::placeholder {
 }
 
 .form-button {
-    margin-top: 55px;
-    display: flex;
-    justify-content: flex-end;
+    width: 232px;
+    margin: 55px 0 0 auto;
 }
+
 
 /* Password toggle */
 
-
 #password-field-block {
     position: relative;
-    display: inline-block;
 }
-
 
 .toggle-password-icon {
     content: "";
