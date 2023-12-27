@@ -18,6 +18,8 @@
     <main class="main" id="main">
         <div class="container">
             <div class="wrap">
+
+                <!-- <Image block -->
                 <div class="image-block">
                     <div class="background-image"></div>
                     <div class="image-block-text">
@@ -25,73 +27,76 @@
                         <p>Lorem Ipsum is simply</p>
                     </div>
                 </div>
+
+                <!-- Form block -->
                 <div class="form-box">
                     <p class="form-greeting">Welcome to lorem..!</p>
+
+                    <!-- Form selector -->
                     <div class="form-selector-wrap">
                         <a class="form-type-link" href="/" id="login-link">Login</a>
                         <a class="form-type-link" href="/" id="register-link">Register</a>
                         <div class="form-type-markup" id="form-type-markup"></div>
                     </div>
+
                     <p class="form-description">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry.
                     </p>
-                    <div class="forms-wrap">
-                        <form class="register" id="register">
-                            
-                            <div class="form-field" id="email-field-block">
-                                <p class="form-label">Email Address</p>
-                                <input type="email" name="email" placeholder="Enter your Email Address"
-                                    autocomplete="on">
-                            </div>
-                            
-                            <div class="form-field" id="name-field-block">
-                                <p class="form-label">User name</p>
-                                <input type="text" name="name" placeholder="Enter your User name" autocomplete="on">
-                            </div>
-                            
-                            <div class="form-field password-field" id="password-field-block">
-                                <p class="form-label">Password</p>
-                                <input type="password" name="password" id="register-password-field" class="password-field" autocomplete="off"
-                                    placeholder="Enter your Password">
 
-                                    <img src="/img/crossed-eye.svg" class="toggle-password-icon" id="register-crossed-eye-icon"
-                                    alt="show password" onclick="showPassword()">
+                    <div class="forms-wrap">
+                        <!-- Register form -->
+                        <form class="register" id="register" action="#" method="post">
+                            <div class="form-field" id="email-field-block">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" name="email" placeholder="Enter your Email Address"
+                                    autocomplete="on" required>
+                            </div>
+                            <div class="form-field" id="name-field-block">
+                                <label class="form-label">User name</label>
+                                <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
+                                    required>
+                            </div>
+                            <div class="form-field password-field" id="password-field-block">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" id="register-password-field"
+                                    class="password-field" autocomplete="off" placeholder="Enter your Password"
+                                    required>
+                                <img src="/img/crossed-eye.svg" class="toggle-password-icon"
+                                    id="register-crossed-eye-icon" alt="show password" onclick="showPassword()">
                                 <img src="/img/open-eye.svg" class="toggle-password-icon" id="register-open-eye-icon"
                                     alt="show password" onclick="hidePassword()">
-
                             </div>
-
+                            <!-- Register button -->
                             <div class="form-button">
                                 <button class="btn" id="register-btn">Register</button>
                             </div>
                         </form>
 
-                        <form class="login" id="login">
-                            
+                        <!-- Login Form -->
+                        <form class="login" id="login" action="#" method="post">
                             <div class="form-field" id="name-field-block">
-                                <p class="form-label">User name</p>
-                                <input type="text" name="name" placeholder="Enter your User name" autocomplete="on">
+                                <label class="form-label">User name</label>
+                                <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
+                                    required>
                             </div>
-                            
                             <div class="form-field password-field" id="login-field-block">
-                                <p class="form-label">Password</p>
-                                <input type="password" name="password" id="login-password-field" class="password-field" autocomplete="off"
-                                    placeholder="Enter your Password">
-                                    <img src="/img/crossed-eye.svg" class="toggle-password-icon" id="login-crossed-eye-icon"
-                                        alt="show password" onclick="showPassword()">
-                                    <img src="/img/open-eye.svg" class="toggle-password-icon" id="login-open-eye-icon"
-                                        alt="show password" onclick="hidePassword()">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" id="login-password-field" class="password-field"
+                                    autocomplete="off" placeholder="Enter your Password" required>
+                                <img src="/img/crossed-eye.svg" class="toggle-password-icon" id="login-crossed-eye-icon"
+                                    alt="show password" onclick="showPassword()">
+                                <img src="/img/open-eye.svg" class="toggle-password-icon" id="login-open-eye-icon"
+                                    alt="show password" onclick="hidePassword()">
                             </div>
-
+                            <!-- Forgot password link -->
                             <div class="form-link-forgot-password" id="forgot-password-link">
                                 <a href="#">Forgot Password?</a>
                             </div>
+                            <!-- Login button -->
                             <div class="form-button">
                                 <button class="btn" id="login-btn">Login</button>
                             </div>
                         </form>
-
-
                     </div>
                 </div>
             </div>
