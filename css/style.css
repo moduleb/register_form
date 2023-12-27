@@ -171,7 +171,7 @@ form {
 }
 
 .form-field{
-    margin-top: 32px;
+    margin-top: calc(32px - 16px); /* вычитает размер span с сообщением об ошибке */
 }
 
 input {
@@ -244,3 +244,26 @@ input::placeholder {
     opacity: 0;
     left: -100%;
 }
+
+
+
+  
+  /* Это стили для не валидных полей */
+  /* input:invalid { */
+    /* border-color: #900; */
+    /* background-color: #fdd; */
+  /* } */
+  
+  
+  /* Это стили для кастомных сообщений об ошибке */
+  .error {  
+    font-size: 12px;
+    font-weight: 300;
+    height: 17px;
+    color: rgb(255, 0, 0);
+    display: block;
+  }
+  
+  .error.active {
+    /* padding: 0.3em; */
+  }

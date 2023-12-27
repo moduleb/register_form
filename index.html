@@ -45,21 +45,24 @@
 
                     <div class="forms-wrap">
                         <!-- Register form -->
-                        <form class="register" id="register" action="#" method="post">
+                        <form novalidate class="register" id="register" action="#" method="post">
                             <div class="form-field" id="email-field-block">
                                 <label class="form-label">Email Address</label>
-                                <input type="email" name="email" placeholder="Enter your Email Address"
-                                    autocomplete="on" required>
+                                <input type="email" name="email" id="register-email-field"
+                                    placeholder="Enter your Email Address" autocomplete="on" required minlength="8" />
+                                <span class="error" aria-live="polite"></span>
                             </div>
                             <div class="form-field" id="name-field-block">
                                 <label class="form-label">User name</label>
                                 <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
-                                    required>
+                                    minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
                             </div>
                             <div class="form-field password-field" id="password-field-block">
                                 <label class="form-label">Password</label>
                                 <input type="password" name="password" id="register-password-field"
                                     class="password-field" autocomplete="off" placeholder="Enter your Password"
+                                    minlength="6" maxlength="20" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*"
+                                    title="Password must contain at least one uppercase letter, one lowercase letter, and one digit"
                                     required>
                                 <img src="/img/crossed-eye.svg" class="toggle-password-icon"
                                     id="register-crossed-eye-icon" alt="show password" onclick="showPassword()">
@@ -77,12 +80,15 @@
                             <div class="form-field" id="name-field-block">
                                 <label class="form-label">User name</label>
                                 <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
-                                    required>
+                                    minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
                             </div>
                             <div class="form-field password-field" id="login-field-block">
                                 <label class="form-label">Password</label>
                                 <input type="password" name="password" id="login-password-field" class="password-field"
-                                    autocomplete="off" placeholder="Enter your Password" required>
+                                    autocomplete="off" placeholder="Enter your Password" minlength="6" maxlength="20"
+                                    pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*"
+                                    title="Password must contain at least one uppercase letter, one lowercase letter, and one digit"
+                                    required>
                                 <img src="/img/crossed-eye.svg" class="toggle-password-icon" id="login-crossed-eye-icon"
                                     alt="show password" onclick="showPassword()">
                                 <img src="/img/open-eye.svg" class="toggle-password-icon" id="login-open-eye-icon"
