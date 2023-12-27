@@ -1,5 +1,3 @@
-/* изменения */
-
 html {
     scroll-behavior: smooth;
 }
@@ -14,6 +12,7 @@ body {
     font-size: 16px;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
+    color: #000;
 }
 
 h1 {
@@ -60,7 +59,16 @@ a:hover {
     background: #8a6428;
 }
 
-/* Image */
+#login-btn{
+    background: #8a6428;
+}
+
+#login-btn:hover{
+    background: #553E19;
+}
+
+
+/* Image block */
 
 .image-block {
     display: flex;
@@ -71,18 +79,18 @@ a:hover {
     background: linear-gradient(180deg, rgba(151, 118, 68, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
         url("/img/cat_rectangle.png");
     background-size: cover;
+    padding-bottom: 55px;
+    padding-left: 69px;
 }
 
 .image-block-text {
     color: #fff;
-    padding-bottom: 55px;
-    padding-left: 69px;
 }
 
 
 /* Form */
 
-.register-form-container {
+.form-box {
     padding-top: 75px;
     width: 454px;
 }
@@ -94,28 +102,29 @@ a:hover {
 
 /* Form selector */
 
-.form-selector {
+.form-selector-wrap{
     display: flex;
-    margin: 24px auto 0 auto;
-    width: 329px;
-    padding: 10px 12px;
-    border-radius: 33px;
-    background-color: #F8EDDD;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    width: 329px;
+    height: 59px;
+    margin: 24px auto 0 auto;
+    padding: 0 12px;
+    border-radius: 33px;
+    background-color: #F8EDDD;
 }
 
 .form-type-markup {
-    position: relative;
-    top: -50px;
-    right: -234px;
+    position: absolute;
+    top: 10px;
+    right: 12px;
     width: 146px;
     height: 40px;
     border-radius: 33px;
     background-color: #9E896A;
     transition: 1s ease;
 }
-
 
 .form-type-link {
     z-index: 1;
@@ -138,12 +147,30 @@ a:hover {
 }
 
 
-/* Form fields */
+/* Form */
 
-.form-fields {
+.forms-wrap{
+    display: flex;
+    margin-top: 32px;
+    position: relative;
+    width: 454px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+form {
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    position: absolute;
+    transition: opacity 0.3s ease-in;
+    transition-delay: 0.25s;
+}
+
+.form-field{
     margin-top: 32px;
 }
 
@@ -176,7 +203,6 @@ input::placeholder {
     font-size: 12px;
     font-weight: 300;
     color: #000;
-    display: none;
 }
 
 .form-button {
@@ -187,12 +213,11 @@ input::placeholder {
 
 /* Password toggle */
 
-#password-field-block {
+.password-field {
     position: relative;
 }
 
 .toggle-password-icon {
-    content: "";
     position: absolute;
     top: 54px;
     z-index: 1;
@@ -202,6 +227,20 @@ input::placeholder {
     cursor: pointer;
 }
 
-#show-password {
+#register-open-eye-icon{
     display: none;
+}
+
+#login-open-eye-icon{
+    display: none;
+}
+
+.register{
+    opacity: 1;
+    left: 0;
+}
+
+.hidden{
+    opacity: 0;
+    left: -100%;
 }
