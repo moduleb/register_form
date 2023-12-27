@@ -56,6 +56,7 @@
                                 <label class="form-label">User name</label>
                                 <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
                                     minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
+                                    <span class="error" aria-live="polite"></span>
                             </div>
                             <div class="form-field password-field" id="password-field-block">
                                 <label class="form-label">Password</label>
@@ -64,6 +65,7 @@
                                     minlength="6" maxlength="20" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*"
                                     title="Password must contain at least one uppercase letter, one lowercase letter, and one digit"
                                     required>
+                                    <span class="error" aria-live="polite"></span>
                                 <img src="/img/crossed-eye.svg" class="toggle-password-icon"
                                     id="register-crossed-eye-icon" alt="show password" onclick="showPassword()">
                                 <img src="/img/open-eye.svg" class="toggle-password-icon" id="register-open-eye-icon"
@@ -81,6 +83,7 @@
                                 <label class="form-label">User name</label>
                                 <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
                                     minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
+                                    <span class="error" aria-live="polite"></span>
                             </div>
                             <div class="form-field password-field" id="login-field-block">
                                 <label class="form-label">Password</label>
@@ -89,6 +92,7 @@
                                     pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*"
                                     title="Password must contain at least one uppercase letter, one lowercase letter, and one digit"
                                     required>
+                                    <span class="error" aria-live="polite"></span>
                                 <img src="/img/crossed-eye.svg" class="toggle-password-icon" id="login-crossed-eye-icon"
                                     alt="show password" onclick="showPassword()">
                                 <img src="/img/open-eye.svg" class="toggle-password-icon" id="login-open-eye-icon"

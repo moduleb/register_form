@@ -2,8 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -250,10 +248,10 @@ input::placeholder {
 }
 
 
-
+/* Стиль для авто-заполненного поля */
 input:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0 50px #ffffff;; /* цвет вашего фона */
-    -webkit-text-fill-color: black; /* цвет текста */
+    -webkit-box-shadow: inset 0 0 0 50px #ffffff;; /* цвет фона */
+    -webkit-text-fill-color: black;
 }
 
 /* Это стили для не валидных полей  */
@@ -262,19 +260,23 @@ input:-webkit-autofill {
     background-color: #fdd;
 }  */
   
-  
+
   /* Это стили для кастомных сообщений об ошибке */
 .error {  
     font-size: 12px;
     font-weight: 300;
     padding-left: 25px;
     height: 20px;
-    color: rgb(255, 0, 0);
+    color: red;
     display: block;
     display: flex;
     align-items: flex-end;
   }
   
   .error.active {
+    color: red;
     /* padding: 0.3em; */
   }
+
+
+  /* Please choose a stronger password. Try a mix of letters, numbers, and symbols. */

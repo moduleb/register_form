@@ -23,29 +23,10 @@ const emailError = document.querySelector("#register-email-field + span.error");
 loginFormBox.classList.add("hidden");
 
 
-function validateEmail(event) {
-  // Каждый раз, когда пользователь что-то вводит,
-  // мы проверяем, являются ли поля формы валидными
-
-  if (email.validity.valid) {
-    // Если на момент валидации какое-то сообщение об ошибке уже отображается,
-    // если поле валидно, удаляем сообщение
-    emailError.textContent = ""; // Сбросить содержимое сообщения
-    emailError.className = "error"; // Сбросить визуальное состояние сообщения
-  } else {
-    // Если поле не валидно, показываем правильную ошибку
-    showError();
-  }
-}
-
 form.addEventListener("submit", function (event) {
   // Если поле email валидно, позволяем форме отправляться
 
   if (!email.validity.valid) {
-
-    // Добавляем обработчик, чтобы валидация работала постоянно
-    email.addEventListener("input", validateEmail);
-
     // Если поле email не валидно, отображаем сообщение об ошибке
     showError();
 
@@ -74,19 +55,16 @@ function showError() {
 }
 
 
-
 /*
 Сбрасывает содержимое форм, ошибки валидации, и видимость пароля 
   при переключении типа формы (login, register)
 */
 function reset() {
-
   for (var i = 0; i < forms.length; i++) {
     forms[i].reset()
   }
   emailError.textContent = ""; // Сбросить содержимое сообщения
   emailError.className = "error"; // Сбросить визуальное состояние сообщения 
-  email.removeEventListener("input", validateEmail); // Удаляем постоянную валидацию полей формы
   hidePassword()
 }
 
