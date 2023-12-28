@@ -247,6 +247,10 @@ input::placeholder {
     left: -100%;
 }
 
+input::selection {
+    background-color: #F8EDDD;;
+    color: black;
+  }
 
 /* Стиль для авто-заполненного поля */
 input:-webkit-autofill {

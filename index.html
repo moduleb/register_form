@@ -54,8 +54,8 @@
                             </div>
                             <div class="form-field" id="name-field-block">
                                 <label class="form-label">User name</label>
-                                <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
-                                    minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
+                                <input type="text" name="name" id="register-name-field" placeholder="Enter your User name" autocomplete="on"
+                                    minlength="4" maxlength="20" required pattern="^[a-zA-Z0-9]+$"/>
                                     <span class="error" aria-live="polite"></span>
                             </div>
                             <div class="form-field password-field" id="password-field-block">
@@ -81,7 +81,7 @@
                         <form class="login" id="login" action="#" method="post">
                             <div class="form-field" id="name-field-block">
                                 <label class="form-label">User name</label>
-                                <input type="text" name="name" placeholder="Enter your User name" autocomplete="on"
+                                <input type="text" name="name" id="login-name-field" placeholder="Enter your User name" autocomplete="on"
                                     minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
                                     <span class="error" aria-live="polite"></span>
                             </div>

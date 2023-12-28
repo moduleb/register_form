@@ -16,26 +16,45 @@ const registerOpenEyeIcon = document.getElementById("register-open-eye-icon");
 const registerCrossedEyeIcon = document.getElementById("register-crossed-eye-icon");
 
 const email = document.getElementById("register-email-field");
+const nameField = document.getElementById("register-name-field");
 const form = document.getElementsByTagName("form")[0];
 const emailError = document.querySelector("#register-email-field + span.error");
+const nameError = document.querySelector("#register-name-field + span.error");
 
 // Скрываем форму login при первой загрузке страницы
 loginFormBox.classList.add("hidden");
 
 
 form.addEventListener("submit", function (event) {
+
+  // сброс ошибок
+  emailError.textContent = ""; 
+  nameError.textContent = ""; 
+  
+  // console.log(email.validity.valid)
+  // console.log(nameField.validity.valid)
   // Если поле email валидно, позволяем форме отправляться
 
   if (!email.validity.valid) {
     // Если поле email не валидно, отображаем сообщение об ошибке
-    showError();
+    showEmailError();
 
     // Предотвращаем стандартное событие отправки формы
     event.preventDefault();
   }
+
+  if (!nameField.validity.valid) {
+    // Display an error message for the text field
+    showNameError();
+
+    // Prevent the form from submitting
+    event.preventDefault();
+  }
 });
 
-function showError() {
+
+
+function showEmailError() {
 
   // Если поле пустое...
   if (email.validity.valueMissing) {
@@ -44,14 +63,35 @@ function showError() {
     // Если поле содержит не email-адрес...
   } else if (email.validity.typeMismatch) {
     emailError.textContent = "Entered value needs to be an e-mail address.";
-    
+
     // Если содержимое слишком короткое...
   } else if (email.validity.tooShort) {
     emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
   }
 
+
   // Задаём стилизацию
   emailError.className = "error active";
+}
+
+
+function showNameError() {
+
+  // Если поле пустое...
+  if (nameField.validity.valueMissing) {
+    nameError.textContent = "You need to enter a name.";
+
+    // Если содержимое слишком короткое...
+  } else if (nameField.validity.tooShort) {
+    nameError.textContent = `Name should be at least ${nameField.minLength} characters; you entered ${nameField.value.length}.`;
+  
+    // Если содержит недопустимые символы...
+  } else if (nameField.validity.patternMismatch) {
+    nameError.textContent = "Entered value can only contain English letters and numbers.";
+  }
+
+  // Задаём стилизацию
+  nameError.className = "error active";
 }
 
 
@@ -64,7 +104,9 @@ function reset() {
     forms[i].reset()
   }
   emailError.textContent = ""; // Сбросить содержимое сообщения
-  emailError.className = "error"; // Сбросить визуальное состояние сообщения 
+  // emailError.className = "error"; // Сбросить визуальное состояние сообщения 
+  nameFieldError.textContent = "";
+  // nameFieldError.className = "error";
   hidePassword()
 }
 
