@@ -25,8 +25,19 @@ a {
     color: #9E896A;
     transition: color 0.4s ease;
     transition: 0.5s ease;
+
 }
-    
+
+a:active {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
 a:hover {
     cursor: pointer;
 }
@@ -61,11 +72,11 @@ a:hover {
     background: #8a6428;
 }
 
-#login-btn{
+#login-btn {
     background: #8a6428;
 }
 
-#login-btn:hover{
+#login-btn:hover {
     background: #553E19;
 }
 
@@ -106,7 +117,7 @@ a:hover {
 
 /* Form selector */
 
-.form-selector-wrap{
+.form-selector-wrap {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -155,7 +166,7 @@ a:hover {
 
 /* Form */
 
-.forms-wrap{
+.forms-wrap {
     display: flex;
     margin-top: 32px;
     position: relative;
@@ -175,8 +186,9 @@ form {
     transition-delay: 0.25s;
 }
 
-.form-field{
-    margin-top: calc(32px - 20px); /* вычитает размер span с сообщением об ошибке */
+.form-field {
+    margin-top: 0
+    /* вычитает размер span с сообщением об ошибке */
 }
 
 input {
@@ -234,32 +246,35 @@ input::placeholder {
     cursor: pointer;
 }
 
-#register-open-eye-icon{
+#register-open-eye-icon {
     display: none;
 }
 
-#login-open-eye-icon{
+#login-open-eye-icon {
     display: none;
 }
 
-.register{
+.register {
     opacity: 1;
     left: 0;
 }
 
-.hidden{
+.hidden {
     opacity: 0;
     left: -100%;
 }
 
 input::selection {
-    background-color: #F8EDDD;;
+    background-color: #F8EDDD;
+    ;
     color: black;
-  }
+}
 
 /* Стиль для авто-заполненного поля */
 input:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0 50px #ffffff;; /* цвет фона */
+    -webkit-box-shadow: inset 0 0 0 50px #ffffff;
+    ;
+    /* цвет фона */
     -webkit-text-fill-color: black;
 }
 
@@ -268,24 +283,23 @@ input:-webkit-autofill {
     border-color: #900;
     background-color: #fdd;
 }  */
-  
 
-  /* Это стили для кастомных сообщений об ошибке */
-.error {  
+
+/* Это стили для кастомных сообщений об ошибке */
+.error {
     font-size: 12px;
     font-weight: 300;
-    padding-left: 25px;
-    height: 20px;
+    padding: 5px 0 0 25px;
+    height: 32px;
     color: red;
     display: block;
-    display: flex;
-    align-items: flex-end;
-  }
-  
-  .error.active {
+    align-items: flex-start;
+}
+
+.error.active {
     color: red;
     /* padding: 0.3em; */
-  }
+}
 
 .success-message {
     position: absolute;
@@ -299,35 +313,38 @@ input:-webkit-autofill {
 
 .icon-success {
     display: block;
-width: 100px;
-margin-bottom: 10px;
-transition: opacity 0.5s ease-in;
+    width: 100px;
+    margin-bottom: 10px;
+    transition: opacity 0.5s ease-in;
 }
 
 @media screen and (min-width: 495px) and (max-width: 1520px) {
     .image-block {
-      display: none;
+        display: none;
     }
+
     .container {
         width: 494px;
         padding: 20px 20px;
     }
-  }
+}
 
 @media screen and (min-width: 0px) and (max-width: 494px) {
     .image-block {
-      display: none;
+        display: none;
     }
+
     .container {
         width: 359px;
         padding: 103px 22px;
     }
 
-    .form-selector-wrap{
+    .form-selector-wrap {
         width: 315px;
         margin: 24px 0 0 0;
     }
-    .forms-wrap{
+
+    .forms-wrap {
         width: 315px;
     }
-  }
+}

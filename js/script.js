@@ -221,7 +221,7 @@ loginLink.addEventListener('click', function (e) {
   // form selector
   loginLink.style.color = "#FFF";
   registerLink.style.color = "#9E896A";
-  formTypeMarkup.style.right = "171px"
+  formTypeMarkup.style.left = "12px"
 
   // form visibility
   loginFormBox.classList.remove("hidden");
@@ -237,7 +237,7 @@ registerLink.addEventListener('click', function (e) {
   // form selector
   registerLink.style.color = "#FFF";
   loginLink.style.color = "#9E896A";
-  formTypeMarkup.style.right = "12px"
+  formTypeMarkup.style.left = "159px"
 
   // form visibility
   loginFormBox.classList.add("hidden");
