@@ -78,7 +78,7 @@ a:hover {
     align-items: flex-end;
     border-radius: 29px;
     background: linear-gradient(180deg, rgba(151, 118, 68, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-        url("img/cat_rectangle.png");
+        url("/img/cat_rectangle.png");
     background-size: cover;
     padding-bottom: 55px;
     padding-left: 69px;
