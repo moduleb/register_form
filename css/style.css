@@ -168,7 +168,7 @@ a:hover {
 
 .forms-wrap {
     display: flex;
-    margin-top: 32px;
+    margin-top: 45px;
     position: relative;
     width: 454px;
     height: 500px;
@@ -217,7 +217,7 @@ input::placeholder {
 /* --- */
 
 .form-link-forgot-password {
-    margin: 2px 0 0 auto;
+    margin: 0 0 0 auto;
     width: 122px;
     font-size: 12px;
     font-weight: 300;
@@ -226,7 +226,7 @@ input::placeholder {
 
 .form-button {
     width: 232px;
-    margin: 55px 0 0 auto;
+    margin: 43px 0 0 auto;
 }
 
 
@@ -289,17 +289,17 @@ input:-webkit-autofill {
 .error {
     font-size: 12px;
     font-weight: 300;
-    padding: 5px 0 0 25px;
+    padding: 0px 0 0 25px;
     height: 32px;
     color: red;
     display: block;
     align-items: flex-start;
 }
 
-.error.active {
+/* .error.active {
     color: red;
-    /* padding: 0.3em; */
-}
+    padding: 0.3em;
+} */
 
 .success-message {
     position: absolute;
@@ -336,7 +336,7 @@ input:-webkit-autofill {
 
     .container {
         width: 359px;
-        padding: 103px 22px;
+        padding: 0 22px;
     }
 
     .form-selector-wrap {
