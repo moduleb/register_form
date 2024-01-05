@@ -30,6 +30,7 @@ a:hover {
     cursor: pointer;
 }
 
+
 .container {
     width: 1440px;
     margin: 0 auto;
@@ -93,10 +94,12 @@ a:hover {
 .form-box {
     padding-top: 75px;
     width: 454px;
+    position: relative;
 }
 
 .form-greeting {
     text-align: center;
+    transition: opacity 0.1s ease-in;
 }
 
 
@@ -113,6 +116,7 @@ a:hover {
     padding: 0 12px;
     border-radius: 33px;
     background-color: #F8EDDD;
+    transition: color 0.4s ease-out;
 }
 
 .form-type-markup {
@@ -144,6 +148,7 @@ a:hover {
 
 .form-description {
     margin-top: 52px;
+    transition: opacity 0.1s ease-in;
 }
 
 
@@ -155,7 +160,6 @@ a:hover {
     position: relative;
     width: 454px;
     height: 500px;
-    position: relative;
     overflow: hidden;
 }
 
@@ -200,7 +204,7 @@ input::placeholder {
 /* --- */
 
 .form-link-forgot-password {
-    margin: 22px 0 0 auto;
+    margin: 2px 0 0 auto;
     width: 122px;
     font-size: 12px;
     font-weight: 300;
@@ -282,5 +286,47 @@ input:-webkit-autofill {
     /* padding: 0.3em; */
   }
 
+.success-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    transition: opacity 0.3s ease-in;
+}
 
-  /* Please choose a stronger password. Try a mix of letters, numbers, and symbols. */
+.icon-success {
+    display: block;
+width: 100px;
+margin-bottom: 10px;
+transition: opacity 0.5s ease-in;
+}
+
+@media screen and (min-width: 495px) and (max-width: 1520px) {
+    .image-block {
+      display: none;
+    }
+    .container {
+        width: 494px;
+        padding: 20px 20px;
+    }
+  }
+
+@media screen and (min-width: 0px) and (max-width: 494px) {
+    .image-block {
+      display: none;
+    }
+    .container {
+        width: 359px;
+        padding: 103px 22px;
+    }
+
+    .form-selector-wrap{
+        width: 315px;
+        margin: 24px 0 0 0;
+    }
+    .forms-wrap{
+        width: 315px;
+    }
+  }

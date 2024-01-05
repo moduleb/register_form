@@ -6,6 +6,11 @@ const registerFormBox = document.getElementById('register');
 const loginFormBox = document.getElementById('login');
 const forms = document.getElementsByTagName('form');
 
+const formSelector = document.getElementById('form-selector-wrap');
+const formGreeting = document.getElementById('form-greeting');
+const formDescription = document.getElementById('form-description');
+const formBox = document.getElementById('form-box');
+
 const registerPasswordField = document.getElementById('register-password-field');
 const loginPasswordField = document.getElementById('login-password-field');
 
@@ -14,25 +19,22 @@ const loginCrossedEyeIcon = document.getElementById("login-crossed-eye-icon");
 
 const registerOpenEyeIcon = document.getElementById("register-open-eye-icon");
 const registerCrossedEyeIcon = document.getElementById("register-crossed-eye-icon");
+const successMessage = document.getElementById("success-message");
 
 const email = document.getElementById("register-email-field");
 const nameField = document.getElementById("register-name-field");
+const passwordField = document.getElementById("register-password-field");
+const loginNameField = document.getElementById("login-name-field");
 const form = document.getElementsByTagName("form")[0];
+const formLogin = document.getElementsByTagName("form")[1];
 const emailError = document.querySelector("#register-email-field + span.error");
 const nameError = document.querySelector("#register-name-field + span.error");
-
-// Скрываем форму login при первой загрузке страницы
-loginFormBox.classList.add("hidden");
+const passwordError = document.querySelector("#register-password-field + span.error");
 
 
 form.addEventListener("submit", function (event) {
 
-  // сброс ошибок
-  emailError.textContent = ""; 
-  nameError.textContent = ""; 
-  
-  // console.log(email.validity.valid)
-  // console.log(nameField.validity.valid)
+  var isvalid = true;
   // Если поле email валидно, позволяем форме отправляться
 
   if (!email.validity.valid) {
@@ -41,7 +43,11 @@ form.addEventListener("submit", function (event) {
 
     // Предотвращаем стандартное событие отправки формы
     event.preventDefault();
+    
+    isvalid = false;
   }
+
+  else {emailError.textContent = ""; }
 
   if (!nameField.validity.valid) {
     // Display an error message for the text field
@@ -49,7 +55,35 @@ form.addEventListener("submit", function (event) {
 
     // Prevent the form from submitting
     event.preventDefault();
+
+    isvalid = false;
   }
+
+  else {nameError.textContent = ""; }
+
+  if (!passwordField.validity.valid) {
+    // Display an error message for the text field
+    showPasswordError();
+
+    // Prevent the form from submitting
+    event.preventDefault();
+
+    isvalid = false;
+  }
+  else {passwordError.textContent = ""; }
+
+
+  if (isvalid == true) {
+    event.preventDefault();
+    registerFormBox.classList.add("hidden");
+    formSelector.classList.add("hidden");
+    formGreeting.classList.add("hidden");
+    formDescription.classList.add("hidden");
+    // formBox.classList.add("hidden");
+    successMessage.classList.remove("hidden");
+    
+  }
+
 });
 
 
@@ -79,20 +113,41 @@ function showNameError() {
 
   // Если поле пустое...
   if (nameField.validity.valueMissing) {
-    nameError.textContent = "You need to enter a name.";
+    nameError.textContent = "You need to enter an user name.";
 
     // Если содержимое слишком короткое...
   } else if (nameField.validity.tooShort) {
-    nameError.textContent = `Name should be at least ${nameField.minLength} characters; you entered ${nameField.value.length}.`;
+    nameError.textContent = `User name should be at least ${nameField.minLength} characters; you entered ${nameField.value.length}.`;
   
     // Если содержит недопустимые символы...
   } else if (nameField.validity.patternMismatch) {
-    nameError.textContent = "Entered value can only contain English letters and numbers.";
+    nameError.textContent = "User name can only contain English letters and numbers.";
   }
 
   // Задаём стилизацию
   nameError.className = "error active";
 }
+
+
+function showPasswordError() {
+
+  // Если поле пустое...
+  if (passwordField.validity.valueMissing) {
+    passwordError.textContent = "You need to enter an password.";
+
+    // Если содержимое слишком короткое...
+  } else if (passwordField.validity.tooShort) {
+    passwordError.textContent = `Password should be at least ${passwordField.minLength} characters; you entered ${passwordField.value.length}.`;
+  
+    // Если содержит недопустимые символы...
+  } else if (passwordField.validity.patternMismatch) {
+    passwordError.textContent = "Password must contain uppercase and lowercase letters and digits";
+  }
+
+  // Задаём стилизацию
+  nameError.className = "error active";
+}
+
 
 
 /*
@@ -105,10 +160,35 @@ function reset() {
   }
   emailError.textContent = ""; // Сбросить содержимое сообщения
   // emailError.className = "error"; // Сбросить визуальное состояние сообщения 
-  nameFieldError.textContent = "";
+  nameError.textContent = "";
   // nameFieldError.className = "error";
+  passwordError.textContent = "";
   hidePassword()
 }
+
+// login submit
+formLogin.addEventListener("submit", function (event) {
+
+  console.log(loginNameField.validity.valid); 
+  // Если поле email валидно, позволяем форме отправляться
+
+  if (!loginNameField.validity.valid) {
+    // Если поле email не валидно, отображаем сообщение об ошибке
+    alert("Wrong login or password");
+    event.preventDefault();
+  }
+
+  else if (!loginPasswordField.validity.valid) {
+    alert("Wrong login or password");
+    event.preventDefault();
+  }
+  });
+
+
+
+
+
+
 
 
 // * Toggles the type of the password field.

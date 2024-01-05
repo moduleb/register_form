@@ -29,17 +29,17 @@
                 </div>
 
                 <!-- Form block -->
-                <div class="form-box">
-                    <p class="form-greeting">Welcome to lorem..!</p>
+                <div class="form-box" id="form-box">
+                    <p class="form-greeting" id="form-greeting">Welcome to lorem..!</p>
 
                     <!-- Form selector -->
-                    <div class="form-selector-wrap">
+                    <div class="form-selector-wrap" id="form-selector-wrap">
                         <a class="form-type-link" href="/" id="login-link">Login</a>
                         <a class="form-type-link" href="/" id="register-link">Register</a>
                         <div class="form-type-markup" id="form-type-markup"></div>
                     </div>
 
-                    <p class="form-description">Lorem Ipsum is simply dummy text of the printing and typesetting
+                    <p class="form-description" id="form-description">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry.
                     </p>
 
@@ -78,11 +78,11 @@
                         </form>
 
                         <!-- Login Form -->
-                        <form class="login" id="login" action="#" method="post">
+                        <form novalidate class="login hidden" id="login" action="#" method="post">
                             <div class="form-field" id="name-field-block">
                                 <label class="form-label">User name</label>
                                 <input type="text" name="name" id="login-name-field" placeholder="Enter your User name" autocomplete="on"
-                                    minlength="4" maxlength="20" pattern="[a-zA-Z0-9 _-]+" required>
+                                    minlength="4" maxlength="20" required pattern="^[a-zA-Z0-9]+$">
                                     <span class="error" aria-live="polite"></span>
                             </div>
                             <div class="form-field password-field" id="login-field-block">
@@ -107,7 +107,14 @@
                                 <button class="btn" id="login-btn">Login</button>
                             </div>
                         </form>
+
+
+                        <div class="success-message hidden" id="success-message">
+                            <img src="/img/icon-success.svg" class="icon-success">
+                            You have successfully registered
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
