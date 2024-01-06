@@ -294,11 +294,12 @@ input:-webkit-autofill {
 .error {
     font-size: 12px;
     font-weight: 300;
-    padding: 5px 25px;
+    padding: 4px 25px;
     height: 32px;
     color: red;
     display: block;
     align-items: flex-start;
+    line-height: 85%;
 }
 
 /* .error.active {
@@ -354,7 +355,6 @@ input:-webkit-autofill {
     }
 
     .error {
-        padding: 5px 20px;
-        line-height: 50%;
+        padding: 3px 20px;
     }
 }

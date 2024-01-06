@@ -35,6 +35,7 @@ const passwordError = document.querySelector("#register-password-field + span.er
 form.addEventListener("submit", function (event) {
 
   var isvalid = true;
+  var credentials = {};
   // Если поле email валидно, позволяем форме отправляться
 
   if (!email.validity.valid) {
@@ -79,11 +80,20 @@ form.addEventListener("submit", function (event) {
     formSelector.classList.add("hidden");
     formGreeting.classList.add("hidden");
     formDescription.classList.add("hidden");
-    // formBox.classList.add("hidden");
     successMessage.classList.remove("hidden");
-    
-  }
 
+
+    var usernameValue =nameField.value;
+    var emailValue = email.value;
+    var passwordValue = passwordField;
+
+    credentials[usernameValue] = {
+      password: passwordValue,
+      email: emailValue
+    };
+    
+    localStorage.setItem("credentials", JSON.stringify(credentials)); 
+  }
 });
 
 
@@ -181,6 +191,34 @@ formLogin.addEventListener("submit", function (event) {
   else if (!loginPasswordField.validity.valid) {
     alert("Wrong login or password");
     event.preventDefault();
+  }
+
+  else {
+    event.preventDefault();
+    // Получение данных из LocalStorage
+    var storedCredentials = localStorage.getItem("credentials");
+
+    // Проверка, что данные были сохранены
+    if (storedCredentials) {
+      // Преобразование строки JSON обратно в объект
+      var credentials = JSON.parse(storedCredentials);
+      
+      // Получение данных для определенного пользователя
+      var userValue = loginNameField;
+      var userCredentials = credentials[userValue];
+      
+      // Проверка, что данные для пользователя существуют
+      if (userCredentials) {
+        var passwordCredentials = userCredentials.password;
+        var emailCredentials = userCredentials.email;
+        console.log("Пароль: " + passwordCredentials);
+        console.log("Email: " + emailCredentials);
+      } else {
+        console.log("Данные для пользователя не найдены");
+      }
+    } else {
+      console.log("Данные в LocalStorage не найдены");
+    }
   }
   });
 
