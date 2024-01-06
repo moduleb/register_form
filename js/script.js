@@ -20,6 +20,7 @@ const loginCrossedEyeIcon = document.getElementById("login-crossed-eye-icon");
 const registerOpenEyeIcon = document.getElementById("register-open-eye-icon");
 const registerCrossedEyeIcon = document.getElementById("register-crossed-eye-icon");
 const successMessage = document.getElementById("success-message");
+const successMessageText = successMessage.querySelector("span");
 
 const email = document.getElementById("register-email-field");
 const nameField = document.getElementById("register-name-field");
@@ -31,11 +32,23 @@ const emailError = document.querySelector("#register-email-field + span.error");
 const nameError = document.querySelector("#register-name-field + span.error");
 const passwordError = document.querySelector("#register-password-field + span.error");
 
+var credentials = {};
+
+function saveToStorage (emailValue, usernameValue, passwordValue) {
+  credentials[usernameValue] = {
+    email: emailValue,
+    username: usernameValue,
+    password: passwordValue
+  };
+  localStorage.setItem("credentials", JSON.stringify(credentials)); // Сохраняем обновленные данн
+}
+
+
 
 form.addEventListener("submit", function (event) {
 
   var isvalid = true;
-  var credentials = {};
+
   // Если поле email валидно, позволяем форме отправляться
 
   if (!email.validity.valid) {
@@ -76,23 +89,71 @@ form.addEventListener("submit", function (event) {
 
   if (isvalid == true) {
     event.preventDefault();
-    registerFormBox.classList.add("hidden");
-    formSelector.classList.add("hidden");
-    formGreeting.classList.add("hidden");
-    formDescription.classList.add("hidden");
-    successMessage.classList.remove("hidden");
 
 
-    var usernameValue =nameField.value;
+    // сохраняем данные в браузере
+    var usernameValue = nameField.value;
     var emailValue = email.value;
-    var passwordValue = passwordField;
-
-    credentials[usernameValue] = {
-      password: passwordValue,
-      email: emailValue
-    };
+    var passwordValue = passwordField.value;
     
-    localStorage.setItem("credentials", JSON.stringify(credentials)); 
+    var credentials = JSON.parse(localStorage.getItem("credentials")) || {}; // Получаем данные из localStorage
+    
+    if (credentials.hasOwnProperty(usernameValue)) { // Проверяем, существует ли уже такой ключ
+      // Код для обработки ситуации, когда такой ключ уже существует
+      nameError.textContent = "User already exists";
+      console.log("Такой username уже существует!");
+    }
+    else {
+
+      // var emailToSearch = emailValue; // Значение email, которое нужно найти
+      // var credentials = JSON.parse(localStorage.getItem("credentials")) || {}; // Получаем данные из localStorage
+
+      // var found = false; // Флаг, указывающий на то, было ли найдено значение
+
+      // for (var key in credentials) {
+      //   if (credentials.hasOwnProperty(key)) {
+      //     if (credentials[key].email === emailToSearch) {
+      //       found = true;
+      //       break;
+      //     }
+      //   }
+      // }
+
+      // if (found) {
+      //   emailError.textContent = "User with this email already exists.";
+
+      //   console.log("Email found in credentials");
+      // } else {
+        console.log("Email not found in credentials");
+        saveToStorage(emailValue, usernameValue, passwordValue)
+
+        registerFormBox.classList.add("hidden");
+        formSelector.classList.add("hidden");
+        formGreeting.classList.add("hidden");
+        formDescription.classList.add("hidden");
+        successMessage.classList.remove("hidden");
+  
+            // перезагружаем страницу
+        setTimeout(function() {
+        location.reload();
+        }, 2000);
+      
+
+
+
+
+
+
+    } 
+
+    // if (credentials.hasOwnProperty(emailValue)) { // Проверяем, существует ли уже такой ключ
+    //     // Код для обработки ситуации, когда такой ключ уже существует
+    //     emailError.textContent = "User already exists";
+    //     console.log("Такой username уже существует!");
+    // }
+    // else {
+    //   saveToStorage(emailValue, usernameValue, passwordValue)
+    // } 
   }
 });
 
@@ -204,21 +265,45 @@ formLogin.addEventListener("submit", function (event) {
       var credentials = JSON.parse(storedCredentials);
       
       // Получение данных для определенного пользователя
-      var userValue = loginNameField;
-      var userCredentials = credentials[userValue];
+      var userNameValue = loginNameField.value;
+      var userPasswordValue = loginPasswordField.value;
+      var userCredentials = credentials[userNameValue];
       
       // Проверка, что данные для пользователя существуют
       if (userCredentials) {
         var passwordCredentials = userCredentials.password;
         var emailCredentials = userCredentials.email;
-        console.log("Пароль: " + passwordCredentials);
-        console.log("Email: " + emailCredentials);
+        var usernameCredentials = userCredentials.username;
+        console.log("Username: " + userNameValue);
+        console.log("Password: " + userPasswordValue);
+
+        console.log("Username from storage: " + usernameCredentials);
+        console.log("Email from storage: " + emailCredentials);
+        console.log("Пароль from storage: " + passwordCredentials);
+
+        if (userPasswordValue != passwordCredentials) {
+          alert("Wrong login or password");
+        }
+        else {
+          loginFormBox.classList.add("hidden");
+          formSelector.classList.add("hidden");
+          formGreeting.classList.add("hidden");
+          formDescription.classList.add("hidden");
+          successMessageText.innerHTML = "You have successfully logged in";
+          successMessage.classList.remove("hidden");
+          setTimeout(function() {
+            location.reload();
+          }, 2000);
+        }
       } else {
+        alert("Wrong login or password");
         console.log("Данные для пользователя не найдены");
       }
     } else {
       console.log("Данные в LocalStorage не найдены");
     }
+
+    // alert('Ok')
   }
   });
 
