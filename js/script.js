@@ -33,6 +33,7 @@ const nameError = document.querySelector("#register-name-field + span.error");
 const passwordError = document.querySelector("#register-password-field + span.error");
 
 var credentials = {};
+var leftDistance = "";
 
 function saveToStorage (emailValue, usernameValue, passwordValue) {
   credentials[usernameValue] = {
@@ -136,7 +137,7 @@ form.addEventListener("submit", function (event) {
             // перезагружаем страницу
         setTimeout(function() {
         location.reload();
-        }, 2000);
+        }, 1500);
       
 
 
@@ -293,7 +294,7 @@ formLogin.addEventListener("submit", function (event) {
           successMessage.classList.remove("hidden");
           setTimeout(function() {
             location.reload();
-          }, 2000);
+          }, 1500);
         }
       } else {
         alert("Wrong login or password");
@@ -344,6 +345,7 @@ loginLink.addEventListener('click', function (e) {
   // form selector
   loginLink.style.color = "#FFF";
   registerLink.style.color = "#9E896A";
+
   formTypeMarkup.style.left = "12px"
 
   // form visibility
@@ -360,7 +362,8 @@ registerLink.addEventListener('click', function (e) {
   // form selector
   registerLink.style.color = "#FFF";
   loginLink.style.color = "#9E896A";
-  formTypeMarkup.style.left = "159px"
+  leftDistance = (formSelector.offsetWidth - 159) + "px";
+  formTypeMarkup.style.left = leftDistance;
 
   // form visibility
   loginFormBox.classList.add("hidden");
