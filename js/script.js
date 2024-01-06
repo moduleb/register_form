@@ -35,7 +35,7 @@ const passwordError = document.querySelector("#register-password-field + span.er
 var credentials = {};
 var leftDistance = "";
 
-function saveToStorage (emailValue, usernameValue, passwordValue) {
+function saveToStorage(emailValue, usernameValue, passwordValue) {
   credentials[usernameValue] = {
     email: emailValue,
     username: usernameValue,
@@ -58,11 +58,11 @@ form.addEventListener("submit", function (event) {
 
     // Предотвращаем стандартное событие отправки формы
     event.preventDefault();
-    
+
     isvalid = false;
   }
 
-  else {emailError.textContent = ""; }
+  else { emailError.textContent = ""; }
 
   if (!nameField.validity.valid) {
     // Display an error message for the text field
@@ -74,7 +74,7 @@ form.addEventListener("submit", function (event) {
     isvalid = false;
   }
 
-  else {nameError.textContent = ""; }
+  else { nameError.textContent = ""; }
 
   if (!passwordField.validity.valid) {
     // Display an error message for the text field
@@ -85,7 +85,7 @@ form.addEventListener("submit", function (event) {
 
     isvalid = false;
   }
-  else {passwordError.textContent = ""; }
+  else { passwordError.textContent = ""; }
 
 
   if (isvalid == true) {
@@ -96,65 +96,29 @@ form.addEventListener("submit", function (event) {
     var usernameValue = nameField.value;
     var emailValue = email.value;
     var passwordValue = passwordField.value;
-    
+
     var credentials = JSON.parse(localStorage.getItem("credentials")) || {}; // Получаем данные из localStorage
-    
+
     if (credentials.hasOwnProperty(usernameValue)) { // Проверяем, существует ли уже такой ключ
       // Код для обработки ситуации, когда такой ключ уже существует
       nameError.textContent = "User already exists";
       console.log("Такой username уже существует!");
     }
     else {
+      saveToStorage(emailValue, usernameValue, passwordValue)
 
-      // var emailToSearch = emailValue; // Значение email, которое нужно найти
-      // var credentials = JSON.parse(localStorage.getItem("credentials")) || {}; // Получаем данные из localStorage
+      registerFormBox.classList.add("hidden");
+      formSelector.classList.add("hidden");
+      formGreeting.classList.add("hidden");
+      formDescription.classList.add("hidden");
+      successMessage.classList.remove("hidden");
 
-      // var found = false; // Флаг, указывающий на то, было ли найдено значение
-
-      // for (var key in credentials) {
-      //   if (credentials.hasOwnProperty(key)) {
-      //     if (credentials[key].email === emailToSearch) {
-      //       found = true;
-      //       break;
-      //     }
-      //   }
-      // }
-
-      // if (found) {
-      //   emailError.textContent = "User with this email already exists.";
-
-      //   console.log("Email found in credentials");
-      // } else {
-        console.log("Email not found in credentials");
-        saveToStorage(emailValue, usernameValue, passwordValue)
-
-        registerFormBox.classList.add("hidden");
-        formSelector.classList.add("hidden");
-        formGreeting.classList.add("hidden");
-        formDescription.classList.add("hidden");
-        successMessage.classList.remove("hidden");
-  
-            // перезагружаем страницу
-        setTimeout(function() {
+      // перезагружаем страницу
+      setTimeout(function () {
         location.reload();
-        }, 1500);
-      
+      }, 2000);
+    }
 
-
-
-
-
-
-    } 
-
-    // if (credentials.hasOwnProperty(emailValue)) { // Проверяем, существует ли уже такой ключ
-    //     // Код для обработки ситуации, когда такой ключ уже существует
-    //     emailError.textContent = "User already exists";
-    //     console.log("Такой username уже существует!");
-    // }
-    // else {
-    //   saveToStorage(emailValue, usernameValue, passwordValue)
-    // } 
   }
 });
 
@@ -190,7 +154,7 @@ function showNameError() {
     // Если содержимое слишком короткое...
   } else if (nameField.validity.tooShort) {
     nameError.textContent = `User name should be at least ${nameField.minLength} characters; you entered ${nameField.value.length}.`;
-  
+
     // Если содержит недопустимые символы...
   } else if (nameField.validity.patternMismatch) {
     nameError.textContent = "User name can only contain English letters and numbers.";
@@ -210,7 +174,7 @@ function showPasswordError() {
     // Если содержимое слишком короткое...
   } else if (passwordField.validity.tooShort) {
     passwordError.textContent = `Password should be at least ${passwordField.minLength} characters; you entered ${passwordField.value.length}.`;
-  
+
     // Если содержит недопустимые символы...
   } else if (passwordField.validity.patternMismatch) {
     passwordError.textContent = "Password must contain uppercase and lowercase letters and digits";
@@ -241,7 +205,7 @@ function reset() {
 // login submit
 formLogin.addEventListener("submit", function (event) {
 
-  console.log(loginNameField.validity.valid); 
+  console.log(loginNameField.validity.valid);
   // Если поле email валидно, позволяем форме отправляться
 
   if (!loginNameField.validity.valid) {
@@ -264,12 +228,12 @@ formLogin.addEventListener("submit", function (event) {
     if (storedCredentials) {
       // Преобразование строки JSON обратно в объект
       var credentials = JSON.parse(storedCredentials);
-      
+
       // Получение данных для определенного пользователя
       var userNameValue = loginNameField.value;
       var userPasswordValue = loginPasswordField.value;
       var userCredentials = credentials[userNameValue];
-      
+
       // Проверка, что данные для пользователя существуют
       if (userCredentials) {
         var passwordCredentials = userCredentials.password;
@@ -292,9 +256,9 @@ formLogin.addEventListener("submit", function (event) {
           formDescription.classList.add("hidden");
           successMessageText.innerHTML = "You have successfully logged in";
           successMessage.classList.remove("hidden");
-          setTimeout(function() {
+          setTimeout(function () {
             location.reload();
-          }, 1500);
+          }, 2000);
         }
       } else {
         alert("Wrong login or password");
@@ -306,7 +270,7 @@ formLogin.addEventListener("submit", function (event) {
 
     // alert('Ok')
   }
-  });
+});
 
 
 
